@@ -1,1 +1,21 @@
+BEOLVAS:
 
+from data import Film
+
+filmek:list[Film]=[]
+
+def beolvas(fajlnev):
+    f=open(fajlnev,'r',encoding='utf-8')
+    f.readline()
+    for sor in f:
+        filmek.append(Film(sor.strip()))
+    f.close()
+
+DATA:
+
+class Film:
+    def __init__(self,sor:str) -> None:
+        adatok=sor.split(';')
+        self.cim=adatok[0]
+        self.megjelenes=int(adatok[1])
+        self.pontszam=adatok[2]
